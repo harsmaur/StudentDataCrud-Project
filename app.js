@@ -24,7 +24,7 @@ connectdb(db_url);
 app.set('view engine', 'ejs')
 
 //load routes
-app.use('/student', web)
+app.use('', web)
 
 //listen to port
 app.listen(port, () => {
