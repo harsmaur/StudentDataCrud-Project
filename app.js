@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import connectdb from './db/connectdb.js';
 import web from './routes/web.js'
 import {join} from 'path';
@@ -17,6 +18,7 @@ app.use('/student/edit',express.static(join(
   //for getting data from page
   app.use(express.urlencoded({extended: false}))
 
+  app.use(cors());
 //connection to database
 connectdb(db_url);
 
@@ -24,7 +26,7 @@ connectdb(db_url);
 app.set('view engine', 'ejs')
 
 //load routes
-app.use('', web)
+app.use('/', web)
 
 //listen to port
 app.listen(port, () => {
